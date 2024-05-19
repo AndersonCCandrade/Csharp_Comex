@@ -22,3 +22,5 @@ cliente1.Endereco = enderecoCliente1;
 
 Console.WriteLine("Informações do Cliente\n");
 cliente1.ExibirInformacaoDoCliente();
+
+Produto produto1 = new Produto("laranja");
