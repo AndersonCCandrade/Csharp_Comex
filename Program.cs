@@ -1,4 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿/*
+// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Olá! Bem vindo ao Sistema Comex!\n");
 
 //Criando objetos do tipo Cliente e Endereço
@@ -24,3 +25,7 @@ Console.WriteLine("Informações do Cliente\n");
 cliente1.ExibirInformacaoDoCliente();
 
 Produto produto1 = new Produto("laranja");
+*/
+
+Menu menu = new();
+menu.ExibirOpcoesDoMenu();
