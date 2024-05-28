@@ -1,4 +1,5 @@
-﻿class Produto 
+﻿namespace Csharp_Comex.Modelos.Produtos;
+internal class Produto 
 {    
     public Produto(string nome)
     {
