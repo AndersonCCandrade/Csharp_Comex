@@ -1,11 +1,18 @@
-﻿namespace Csharp_Comex.Modelos.Produtos;
+﻿using Csharp_Comex.Modelos.Interfaces;
 
-internal class Livro : Produto
+namespace Csharp_Comex.Modelos.Produtos;
+
+internal class Livro : Produto, IIdentifica
 {
     public string Isbn { get; set; }
     public int TotalDePaginas { get; set; }
 
     public Livro(string nome) : base(nome)
     {
+    }
+
+    public string Identificar()
+    {
+        return $"Nome: {Nome} ISBN: {Isbn}";
     }
 }

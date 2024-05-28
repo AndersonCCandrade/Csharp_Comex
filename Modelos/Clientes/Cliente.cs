@@ -1,6 +1,8 @@
-﻿namespace Csharp_Comex.Modelos.Clientes;
+﻿using Csharp_Comex.Modelos.Interfaces;
 
-internal class Cliente
+namespace Csharp_Comex.Modelos.Clientes;
+
+internal class Cliente : IIdentifica
 {
     public string Nome { get; set; }
     public string Cpf { get; set; }
@@ -18,5 +20,11 @@ internal class Cliente
             $"\nTelefone: {Telefone}" +
             $"\nEndereço:\n{Endereco.ExibirEndereco()}"
             );
+    }
+
+    public string Identificar()
+    {
+        return $"Nome: {Nome} CPF: {Cpf}";
+
     }
 }
