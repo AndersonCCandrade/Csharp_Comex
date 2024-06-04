@@ -1,4 +1,5 @@
 ﻿using Csharp_Comex.Modelos.ConsultaApi;
+using Csharp_Comex.Modelos.Filtros;
 using Csharp_Comex.Modelos.Produtos;
 using System.Text.Json;
 
@@ -18,7 +19,7 @@ internal class MenuExibirListaDeProdutosExterna : Menu
         var listaDeProdutos = JsonSerializer.Deserialize<List<Produto>>(resultado)!;
         listaDeProdutos.ForEach(produto => Console.WriteLine($"Produto: {produto.Nome}\n" +
                                                          $"Descrição: {produto.Descricao}\n" +
-                                                         $"Preço: {produto.Preco}\n"));        
+                                                         $"Preço: {produto.Preco}\n"));
         Console.WriteLine("\nDigite uma tecla para voltar ao menur principal");
         Console.ReadKey();
 

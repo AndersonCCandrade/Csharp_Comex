@@ -16,5 +16,10 @@ internal class Produto
     public double Preco { get; set; }
     public int Quantidade { get; set; }
 
-
+    public static void ExibirDetalhesDoProduto(Produto produto)
+    {
+        Console.WriteLine($"Produto: {produto.Nome}\n" +
+                          $"Descrição: {produto.Descricao}\n" +
+                          $"Preço: {produto.Preco}\n");
+    }
 }

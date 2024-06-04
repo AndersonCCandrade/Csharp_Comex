@@ -1,4 +1,6 @@
-﻿using Csharp_Comex.Modelos.Produtos;
+﻿using Csharp_Comex.Modelos.ConsultaApi;
+using Csharp_Comex.Modelos.Produtos;
+using System;
 
 namespace Csharp_Comex.Modelos.Menus
 {
@@ -7,7 +9,7 @@ namespace Csharp_Comex.Modelos.Menus
         List<Produto> listaDeProdutos = new List<Produto>();
         
         public string NomeDoSistema { get; } = "CSHARP COMEX";
-
+       
         public void ExibirOpcoesDoMenu()
         {
             Console.Clear();
@@ -15,13 +17,15 @@ namespace Csharp_Comex.Modelos.Menus
             logo.LogoSistema();
             Console.WriteLine("\nDigite 1 para cadastrar Produto");
             Console.WriteLine("Digite 2 para listar todas os produtos");
-            Console.WriteLine("Digite 3 para listar produtos de API Externa");
+            Console.WriteLine("Digite 3 para exibir lista de produtos externa");
+            Console.WriteLine("Digite 4 para listar produtos ordenados por Nome");
+            Console.WriteLine("Digite 5 para listar produtos ordenados por Preço");
             Console.WriteLine("Digite 0 para sair");
 
             Console.Write("\nDigite a sua opção: ");
             int opcaoEscolhida = int.Parse(Console.ReadLine()!);
 
-
+            
 
             switch (opcaoEscolhida)
             {
@@ -36,6 +40,14 @@ namespace Csharp_Comex.Modelos.Menus
                 case 3:
                     MenuExibirListaDeProdutosExterna menu3 = new();
                     menu3.ListarProdutosExternos();
+                    break;                
+                case 4:
+                    MenuExibirListaDeProdutosOrdenados menu5 = new();
+                    menu5.ListaDeProdutosOrdenadosPorNome(listaDeProdutos);
+                    break;
+                case 5:
+                    MenuExibirListaDeProdutosOrdenados menu6 = new();
+                    menu6.ListaDeProdutosOrdenadosPorPreco(listaDeProdutos);
                     break;
                 case 0:
                     Console.WriteLine($"\nObridado por usar o sistema {NomeDoSistema}.\nAté logo!");
