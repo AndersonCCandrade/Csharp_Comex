@@ -1,4 +1,5 @@
-﻿namespace Csharp_Comex.Modelos.Menus;
+﻿
+namespace Csharp_Comex.Modelos.Menus;
 
 internal class Logo : Menu
 {
@@ -28,6 +29,13 @@ internal class Logo : Menu
         Console.WriteLine(@"
 █░░ █ █▀ ▀█▀ ▄▀█   █▀▄ █▀▀   █▀█ █▀█ █▀█ █▀▄ █░█ ▀█▀ █▀█
 █▄▄ █ ▄█ ░█░ █▀█   █▄▀ ██▄   █▀▀ █▀▄ █▄█ █▄▀ █▄█ ░█░ █▄█" + "\n");
+    }
+
+    public void LogoListaDeProdutoExternos()
+    {
+        Console.WriteLine(@"
+█░░ █ █▀ ▀█▀ ▄▀█   █▀▄ █▀▀   █▀█ █▀█ █▀█ █▀▄ █░█ ▀█▀ █▀█ █▀   █▀▀ ▀▄▀ ▀█▀ █▀▀ █▀█ █▄░█ █▀█ █▀
+█▄▄ █ ▄█ ░█░ █▀█   █▄▀ ██▄   █▀▀ █▀▄ █▄█ █▄▀ █▄█ ░█░ █▄█ ▄█   ██▄ █░█ ░█░ ██▄ █▀▄ █░▀█ █▄█ ▄█" + "\n");
     }
 }
 

@@ -1,4 +1,6 @@
-﻿namespace Csharp_Comex.Modelos.Produtos;
+﻿using System.Text.Json.Serialization;
+
+namespace Csharp_Comex.Modelos.Produtos;
 internal class Produto 
 {    
     public Produto(string nome)
@@ -6,10 +8,10 @@ internal class Produto
         Nome = nome;
     }
 
-    public string Nome { get; set; }
-    public string Descricao { get; set; }
+    public string Nome { get; set; }    
+    public string Descricao { get; set; }    
     public double Preco { get; set; }
-    public int Quantidade { get; set; }    
+    public int Quantidade { get; set; } 
   
     
 }

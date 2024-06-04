@@ -5,6 +5,7 @@ namespace Csharp_Comex.Modelos.Menus
     internal class Menu
     {
         List<Produto> listaDeProdutos = new List<Produto>();
+        
         public string NomeDoSistema { get; } = "CSHARP COMEX";
 
         public void ExibirOpcoesDoMenu()
@@ -14,6 +15,7 @@ namespace Csharp_Comex.Modelos.Menus
             logo.LogoSistema();
             Console.WriteLine("\nDigite 1 para cadastrar Produto");
             Console.WriteLine("Digite 2 para listar todas os produtos");
+            Console.WriteLine("Digite 3 para listar produtos de API Externa");
             Console.WriteLine("Digite 0 para sair");
 
             Console.Write("\nDigite a sua opção: ");
@@ -30,6 +32,10 @@ namespace Csharp_Comex.Modelos.Menus
                 case 2:
                     MenuListarProduto menu2 = new();
                     menu2.ListarProdutos(listaDeProdutos);
+                    break;
+                case 3:
+                    MenuExibirListaDeProdutosExterna menu3 = new();
+                    menu3.ListarProdutosExternos();
                     break;
                 case 0:
                     Console.WriteLine($"\nObridado por usar o sistema {NomeDoSistema}.\nAté logo!");
