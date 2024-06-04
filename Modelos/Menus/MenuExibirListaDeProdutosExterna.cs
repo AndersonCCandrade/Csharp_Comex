@@ -14,7 +14,11 @@ internal class MenuExibirListaDeProdutosExterna : Menu
         Logo logo = new();
         logo.LogoListaDeProdutoExternos();
         RequisicaoApi requisicao = new RequisicaoApi();
-        Console.WriteLine(requisicao.conexao().Result); 
+        var resultado = requisicao.conexao().Result;
+        var listaDeProdutos = JsonSerializer.Deserialize<List<Produto>>(resultado)!;
+        listaDeProdutos.ForEach(produto => Console.WriteLine($"Produto: {produto.Nome}\n" +
+                                                         $"Descrição: {produto.Descricao}\n" +
+                                                         $"Preço: {produto.Preco}\n"));        
         Console.WriteLine("\nDigite uma tecla para voltar ao menur principal");
         Console.ReadKey();
 

@@ -8,10 +8,13 @@ internal class Produto
         Nome = nome;
     }
 
-    public string Nome { get; set; }    
-    public string Descricao { get; set; }    
+    [JsonPropertyName("title")]
+    public string Nome { get; set; }
+    [JsonPropertyName("description")]
+    public string Descricao { get; set; }
+    [JsonPropertyName("price")]
     public double Preco { get; set; }
-    public int Quantidade { get; set; } 
-  
-    
+    public int Quantidade { get; set; }
+
+
 }
