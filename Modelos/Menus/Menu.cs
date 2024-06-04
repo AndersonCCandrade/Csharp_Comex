@@ -1,6 +1,4 @@
-﻿using Csharp_Comex.Modelos.ConsultaApi;
-using Csharp_Comex.Modelos.Produtos;
-using System;
+﻿using Csharp_Comex.Modelos.Produtos;
 
 namespace Csharp_Comex.Modelos.Menus
 {
@@ -9,7 +7,7 @@ namespace Csharp_Comex.Modelos.Menus
         List<Produto> listaDeProdutos = new List<Produto>();
         
         public string NomeDoSistema { get; } = "CSHARP COMEX";
-       
+        
         public void ExibirOpcoesDoMenu()
         {
             Console.Clear();

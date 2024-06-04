@@ -3,7 +3,7 @@ using Csharp_Comex.Modelos.Produtos;
 
 namespace Csharp_Comex.Modelos.Menus;
 
-internal class MenuExibirListaDeProdutosOrdenados
+internal class MenuExibirListaDeProdutosOrdenados : Menu
 {
     public void ListaDeProdutosOrdenadosPorNome(List<Produto> produtos)
     {
