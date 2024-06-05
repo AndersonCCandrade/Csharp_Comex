@@ -29,5 +29,8 @@ internal class Pedido
         Console.WriteLine($"Valor Total do Pedido: R$ {Total}");
     }
 
-
+    public void AdicionarItem(ItemDePedido item)
+    {
+        Itens.Add(item);
+    }
 }
