@@ -1,8 +1,9 @@
-﻿using System.Text.Json.Serialization;
+﻿using Csharp_Comex.Modelos.Menus;
+using System.Text.Json.Serialization;
 
 namespace Csharp_Comex.Modelos.Produtos;
-internal class Produto 
-{    
+internal class Produto
+{
     public Produto(string nome)
     {
         Nome = nome;
@@ -21,5 +22,10 @@ internal class Produto
         Console.WriteLine($"Produto: {produto.Nome}\n" +
                           $"Descrição: {produto.Descricao}\n" +
                           $"Preço: {produto.Preco}\n");
+    }
+
+    public override string ToString()
+    {
+        return $"Nome: {Nome} | Descrição: {Descricao} | Preço: {Preco}";
     }
 }

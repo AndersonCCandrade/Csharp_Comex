@@ -1,4 +1,5 @@
 ﻿
+
 namespace Csharp_Comex.Modelos.Menus;
 
 internal class Logo : Menu
@@ -36,6 +37,13 @@ internal class Logo : Menu
         Console.WriteLine(@"
 █░░ █ █▀ ▀█▀ ▄▀█   █▀▄ █▀▀   █▀█ █▀█ █▀█ █▀▄ █░█ ▀█▀ █▀█ █▀   █▀▀ ▀▄▀ ▀█▀ █▀▀ █▀█ █▄░█ █▀█ █▀
 █▄▄ █ ▄█ ░█░ █▀█   █▄▀ ██▄   █▀▀ █▀▄ █▄█ █▄▀ █▄█ ░█░ █▄█ ▄█   ██▄ █░█ ░█░ ██▄ █▀▄ █░▀█ █▄█ ▄█" + "\n");
+    }
+
+    internal void LogoCadastrarPedido()
+    {
+        Console.WriteLine(@"
+█▀▀ ▄▀█ █▀▄ ▄▀█ █▀ ▀█▀ █▀█ ▄▀█ █▀█   █▀█ █▀▀ █▀▄ █ █▀▄ █▀█
+█▄▄ █▀█ █▄▀ █▀█ ▄█ ░█░ █▀▄ █▀█ █▀▄   █▀▀ ██▄ █▄▀ █ █▄▀ █▄█" + "\n");
     }
 }
 

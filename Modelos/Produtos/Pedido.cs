@@ -4,10 +4,12 @@ namespace Csharp_Comex.Modelos.Produtos;
 
 internal class Pedido
 {
+    
     public Cliente Cliente { get; }
     public DateTime Date { get; }
     public List<ItemDePedido> Itens { get; }
-    public double Total 
+    public double Total
+
     {
         get
         {
@@ -33,4 +35,5 @@ internal class Pedido
     {
         Itens.Add(item);
     }
+    
 }

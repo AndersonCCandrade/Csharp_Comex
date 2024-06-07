@@ -24,4 +24,9 @@ internal class MenuListarProduto : Menu
         Console.ReadKey();
 
     }
+
+    public void ExibirListaDeProdutos(List<Produto> listaDeProdutos)
+    {
+        listaDeProdutos.ForEach(produto => Console.WriteLine(produto.ToString())); 
+    }
 }
