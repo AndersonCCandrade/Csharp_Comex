@@ -10,10 +10,14 @@ namespace Csharp_Comex.Modelos.Menus
 
         List<Pedido> pedidos = new List<Pedido>();
         public string NomeDoSistema { get; } = "CSHARP COMEX";
-        
-        public void ExibirOpcoesDoMenu()
+
+        public Menu()
         {
             CriarListaDeProdutos();
+        }
+
+        public void ExibirOpcoesDoMenu()
+        {            
             Console.Clear();
             Logo logo = new();
             logo.LogoSistema();
@@ -23,6 +27,7 @@ namespace Csharp_Comex.Modelos.Menus
             Console.WriteLine("Digite 4 para listar produtos ordenados por Nome");
             Console.WriteLine("Digite 5 para listar produtos ordenados por Preço");
             Console.WriteLine("Digite 6 para Criar um pedido");
+            Console.WriteLine("Digite 7 para exibir lista de pedidos");
             Console.WriteLine("Digite 0 para sair");
 
             Console.Write("\nDigite a sua opção: ");
@@ -43,16 +48,20 @@ namespace Csharp_Comex.Modelos.Menus
                     menu3.ListarProdutosExternos();
                     break;                
                 case 4:
-                    MenuExibirListaDeProdutosOrdenados menu5 = new();
-                    menu5.ListaDeProdutosOrdenadosPorNome(listaDeProdutos);
+                    MenuExibirListaDeProdutosOrdenados menu4 = new();
+                    menu4.ListaDeProdutosOrdenadosPorNome(listaDeProdutos);
                     break;
                 case 5:
-                    MenuExibirListaDeProdutosOrdenados menu6 = new();
-                    menu6.ListaDeProdutosOrdenadosPorPreco(listaDeProdutos);
+                    MenuExibirListaDeProdutosOrdenados menu5 = new();
+                    menu5.ListaDeProdutosOrdenadosPorPreco(listaDeProdutos);
                     break;
                 case 6:
-                    MenuAdicionarPedido menu7 = new();
-                    pedidos.Add(menu7.CadastrarPedido(pedidos, listaDeProdutos));
+                    MenuAdicionarPedido menu6 = new();
+                    pedidos.Add(menu6.CadastrarPedido(pedidos, listaDeProdutos));
+                    break;                    
+                case 7:
+                    MenuListarPedidos menu7 = new();
+                    menu7.ListaDePedidos(pedidos);                    
                     break;
                 case 0:
                     Console.WriteLine($"\nObridado por usar o sistema {NomeDoSistema}.\nAté logo!");

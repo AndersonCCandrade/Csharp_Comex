@@ -73,8 +73,8 @@ internal class MenuAdicionarPedido : Menu
         }
 
        
-        Console.Write("Pedido Cadastrado com sucesso\n");        
-        Console.WriteLine($"Detalhes do pedido do cliente: -> {cliente.Nome}\n");
+        Console.Write("\nPedido Cadastrado com sucesso\n");        
+        Console.WriteLine($"\nDetalhes do pedido do cliente: -> {cliente.Nome}\n");
         Console.WriteLine("__________________________________________________________\n");
         pedido.ExibirDetalhesDoPedido();
         Console.WriteLine("\n__________________________________________________________");

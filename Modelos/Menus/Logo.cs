@@ -39,11 +39,19 @@ internal class Logo : Menu
 █▄▄ █ ▄█ ░█░ █▀█   █▄▀ ██▄   █▀▀ █▀▄ █▄█ █▄▀ █▄█ ░█░ █▄█ ▄█   ██▄ █░█ ░█░ ██▄ █▀▄ █░▀█ █▄█ ▄█" + "\n");
     }
 
-    internal void LogoCadastrarPedido()
+    public void LogoCadastrarPedido()
     {
         Console.WriteLine(@"
 █▀▀ ▄▀█ █▀▄ ▄▀█ █▀ ▀█▀ █▀█ ▄▀█ █▀█   █▀█ █▀▀ █▀▄ █ █▀▄ █▀█
 █▄▄ █▀█ █▄▀ █▀█ ▄█ ░█░ █▀▄ █▀█ █▀▄   █▀▀ ██▄ █▄▀ █ █▄▀ █▄█" + "\n");
     }
+
+    public void LogoListarPedido()
+    {
+        Console.WriteLine(@"
+█░░ █ █▀ ▀█▀ ▄▀█ █▀▀ █▀▀ █▀▄▀█   █▀▄ █▀▀   █▀█ █▀▀ █▀▄ █ █▀▄ █▀█ █▀
+█▄▄ █ ▄█ ░█░ █▀█ █▄█ ██▄ █░▀░█   █▄▀ ██▄   █▀▀ ██▄ █▄▀ █ █▄▀ █▄█ ▄█");
+    }
+
 }
 
