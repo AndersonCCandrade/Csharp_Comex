@@ -1,15 +1,23 @@
 ﻿using Csharp_Comex.Modelos.Produtos;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Csharp_Comex.Modelos.Menus
 {
     internal class Menu
     {
         List<Produto> listaDeProdutos = new List<Produto>();
-        
+
+        List<Pedido> pedidos = new List<Pedido>();
         public string NomeDoSistema { get; } = "CSHARP COMEX";
-        
-        public void ExibirOpcoesDoMenu()
+
+        public Menu()
         {
+            CriarListaDeProdutos();
+        }
+
+        public void ExibirOpcoesDoMenu()
+        {            
             Console.Clear();
             Logo logo = new();
             logo.LogoSistema();
@@ -18,13 +26,13 @@ namespace Csharp_Comex.Modelos.Menus
             Console.WriteLine("Digite 3 para exibir lista de produtos externa");
             Console.WriteLine("Digite 4 para listar produtos ordenados por Nome");
             Console.WriteLine("Digite 5 para listar produtos ordenados por Preço");
+            Console.WriteLine("Digite 6 para Criar um pedido");
+            Console.WriteLine("Digite 7 para exibir lista de pedidos");
             Console.WriteLine("Digite 0 para sair");
 
             Console.Write("\nDigite a sua opção: ");
             int opcaoEscolhida = int.Parse(Console.ReadLine()!);
-
             
-
             switch (opcaoEscolhida)
             {
                 case 1:
@@ -40,12 +48,20 @@ namespace Csharp_Comex.Modelos.Menus
                     menu3.ListarProdutosExternos();
                     break;                
                 case 4:
-                    MenuExibirListaDeProdutosOrdenados menu5 = new();
-                    menu5.ListaDeProdutosOrdenadosPorNome(listaDeProdutos);
+                    MenuExibirListaDeProdutosOrdenados menu4 = new();
+                    menu4.ListaDeProdutosOrdenadosPorNome(listaDeProdutos);
                     break;
                 case 5:
-                    MenuExibirListaDeProdutosOrdenados menu6 = new();
-                    menu6.ListaDeProdutosOrdenadosPorPreco(listaDeProdutos);
+                    MenuExibirListaDeProdutosOrdenados menu5 = new();
+                    menu5.ListaDeProdutosOrdenadosPorPreco(listaDeProdutos);
+                    break;
+                case 6:
+                    MenuAdicionarPedido menu6 = new();
+                    pedidos.Add(menu6.CadastrarPedido(pedidos, listaDeProdutos));
+                    break;                    
+                case 7:
+                    MenuListarPedidos menu7 = new();
+                    menu7.ListaDePedidos(pedidos);                    
                     break;
                 case 0:
                     Console.WriteLine($"\nObridado por usar o sistema {NomeDoSistema}.\nAté logo!");
@@ -58,6 +74,15 @@ namespace Csharp_Comex.Modelos.Menus
             if (opcaoEscolhida != 0) ExibirOpcoesDoMenu();
         }
 
+        private void CriarListaDeProdutos()
+        {
+            listaDeProdutos.Add(new Produto("Sapato") { Descricao = " Sapato social", Preco = 150.55 });
+            listaDeProdutos.Add(new Produto("Camisa") { Descricao = " Camisa social", Preco = 80.25 });
+            listaDeProdutos.Add(new Produto("Calsa") { Descricao = " Calsa social", Preco = 195.32 });
+            listaDeProdutos.Add(new Produto("Bleiser") { Descricao = " Bleiser social", Preco = 240.55 });
+            listaDeProdutos.Add(new Produto("Meia") { Descricao = " Meia social", Preco = 59.80 });
+            listaDeProdutos.Add(new Produto("Cinto") { Descricao = " Cinto social", Preco = 68.00 });
+        }
     }
 }
 
