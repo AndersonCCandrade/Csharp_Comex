@@ -1,6 +1,6 @@
 ﻿namespace Csharp_Comex.Modelos.Interfaces;
 
-internal interface IIdentifica
+public interface IIdentifica
 {
     string Identificar();
 }

@@ -1,8 +1,8 @@
 ﻿using Csharp_Comex.Modelos.Produtos;
 
-namespace Csharp_Comex.Modelos.Menus;
+namespace Csharp_Comex.Menus;
 
-internal class MenuListarProduto : Menu
+public class MenuListarProduto : Menu
 {
 
     public void ListarProdutos(List<Produto> listaDeProdutos)
@@ -12,12 +12,7 @@ internal class MenuListarProduto : Menu
         logo.LogoListarProduto();
         foreach (var produto in listaDeProdutos)
         {
-            Console.WriteLine(
-            $"Nome: {produto.Nome}\n" +
-            $"Descrição: {produto.Descricao}\n" +
-            $"Preço: R$ {produto.Preco}\n" +
-            $"Quantidade: {produto.Quantidade}\n"
-            );
+            Console.WriteLine(produto.ToString());
         }
 
         Console.WriteLine("\nDigite uma tecla para voltar ao menur principal");
@@ -27,6 +22,6 @@ internal class MenuListarProduto : Menu
 
     public void ExibirListaDeProdutos(List<Produto> listaDeProdutos)
     {
-        listaDeProdutos.ForEach(produto => Console.WriteLine(produto.ToString())); 
+        listaDeProdutos.ForEach(produto => Console.WriteLine(produto.ToString()));
     }
 }

@@ -1,5 +1,5 @@
 ﻿namespace Csharp_Comex.Modelos.Clientes;
-internal class Endereco
+public class Endereco
 {
     public string Rua { get; set; }
     public int Numero { get; set; }

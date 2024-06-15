@@ -1,6 +1,6 @@
-﻿namespace Csharp_Comex.Modelos.ConsultaApi
+﻿namespace Csharp_Comex.ConsultaApi
 {
-    internal class RequisicaoApi
+    public class RequisicaoApi
     {
         HttpClient client = new HttpClient();
 

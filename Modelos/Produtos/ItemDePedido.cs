@@ -1,6 +1,6 @@
 ﻿namespace Csharp_Comex.Modelos.Produtos;
 
-internal class ItemDePedido
+public class ItemDePedido
 {
     public Produto Produto { get; }
     public int Quantidade { get; }

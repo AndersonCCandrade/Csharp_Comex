@@ -1,8 +1,8 @@
 ﻿using Csharp_Comex.Modelos.Produtos;
 
-namespace Csharp_Comex.Modelos.Filtros;
+namespace Csharp_Comex.Filtros;
 
-internal class OrdenacaoDeProdutos
+public class OrdenacaoDeProdutos
 {
     public static List<Produto> ExibirListaDeProdutosOrdendaPorNome(List<Produto> produtos)
     {

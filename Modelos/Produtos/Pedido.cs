@@ -2,7 +2,7 @@
 
 namespace Csharp_Comex.Modelos.Produtos;
 
-internal class Pedido
+public class Pedido
 {
     
     public Cliente Cliente { get; }
@@ -35,5 +35,12 @@ internal class Pedido
     {
         Itens.Add(item);
     }
-    
+
+    public override string ToString()
+    {
+        return $" Cliente: {Cliente.Nome} | " +
+                $"Data do Pedido: {Date} | " +
+                $"Total de Itens: {Itens.Count}";
+    }
+
 }

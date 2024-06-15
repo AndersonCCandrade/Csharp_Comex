@@ -2,7 +2,7 @@
 
 namespace Csharp_Comex.Modelos.Clientes;
 
-internal class Cliente : IIdentifica
+public class Cliente : IIdentifica
 {
     public string Nome { get; set; }
     public string Cpf { get; set; }

@@ -1,8 +1,8 @@
 ﻿using Csharp_Comex.Modelos.Produtos;
 
-namespace Csharp_Comex.Modelos.Menus;
+namespace Csharp_Comex.Menus;
 
-internal class MenuCadatrarProduto : Menu
+public class MenuCadatrarProduto : Menu
 {
     public Produto CadastrarProduto()
     {
@@ -28,7 +28,7 @@ internal class MenuCadatrarProduto : Menu
         Console.WriteLine($"\n\nO produto {nome} foi cadastrado com sucesso!");
         Thread.Sleep(4000);
 
-        return (produto);
+        return produto;
     }
 }
 

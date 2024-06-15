@@ -1,5 +1,5 @@
-﻿using Csharp_Comex.Modelos.Clientes;
-using Csharp_Comex.Modelos.Menus;
+﻿using Csharp_Comex.Menus;
+using Csharp_Comex.Modelos.Clientes;
 using Csharp_Comex.Modelos.Produtos;
 
 Menu menu = new();

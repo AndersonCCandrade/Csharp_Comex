@@ -2,7 +2,7 @@
 
 namespace Csharp_Comex.Modelos.Produtos;
 
-internal class Livro : Produto, IIdentifica
+public class Livro : Produto, IIdentifica
 {
     public string Isbn { get; set; }
     public int TotalDePaginas { get; set; }

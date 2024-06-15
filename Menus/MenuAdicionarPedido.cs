@@ -2,9 +2,9 @@
 using Csharp_Comex.Modelos.Produtos;
 
 
-namespace Csharp_Comex.Modelos.Menus;
+namespace Csharp_Comex.Menus;
 
-internal class MenuAdicionarPedido : Menu
+public class MenuAdicionarPedido : Menu
 {
     public Pedido CadastrarPedido(List<Pedido> pedidos, List<Produto> produtos)
     {
@@ -18,8 +18,8 @@ internal class MenuAdicionarPedido : Menu
         cliente.Nome = nome;
 
         bool opcao = true;
-        while (opcao) 
-        { 
+        while (opcao)
+        {
             Console.Write("Para visualizar a lista de produtos digite 1 ou 0 para continuar: ");
             int opcaoEscolhida = int.Parse(Console.ReadLine()!);
             Console.WriteLine();
@@ -40,25 +40,25 @@ internal class MenuAdicionarPedido : Menu
         }
 
         Pedido pedido = new(cliente);
-        
+
         bool opcaoPedido = true;
         while (opcaoPedido)
         {
             Console.Write("Digite o nome do produto que deseja adicionar a lista de pedido: ");
             string nomeProduto = Console.ReadLine()!;
-                     
+
             while (!produtos.Exists(p => p.Nome.Contains(nomeProduto)))
             {
                 Console.WriteLine("Produto não encontrado!!");
 
                 Console.Write("Digite o nome do produto que deseja adicionar a lista de pedido: ");
                 nomeProduto = Console.ReadLine()!;
-                                
+
             }
 
             var produto = produtos.Find(p => p.Nome == nomeProduto)!;
             Console.Write("\nDigite a quantidade do produto: ");
-            int quantidade = int.Parse(Console.ReadLine()!);          
+            int quantidade = int.Parse(Console.ReadLine()!);
 
             ItemDePedido item = new(produto, quantidade);
             pedido.AdicionarItem(item);
@@ -72,15 +72,15 @@ internal class MenuAdicionarPedido : Menu
             }
         }
 
-       
-        Console.Write("\nPedido Cadastrado com sucesso\n");        
+
+        Console.Write("\nPedido Cadastrado com sucesso\n");
         Console.WriteLine($"\nDetalhes do pedido do cliente: -> {cliente.Nome}\n");
         Console.WriteLine("__________________________________________________________\n");
         pedido.ExibirDetalhesDoPedido();
         Console.WriteLine("\n__________________________________________________________");
         Console.WriteLine("\nDigite uma tecla para voltar ao menur principal");
         Console.ReadKey();
-        
+
         return pedido;
 
     }

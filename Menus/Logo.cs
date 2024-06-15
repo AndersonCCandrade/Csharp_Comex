@@ -1,8 +1,6 @@
-﻿
+﻿namespace Csharp_Comex.Menus;
 
-namespace Csharp_Comex.Modelos.Menus;
-
-internal class Logo : Menu
+public class Logo : Menu
 {
     public void LogoSistema()
     {

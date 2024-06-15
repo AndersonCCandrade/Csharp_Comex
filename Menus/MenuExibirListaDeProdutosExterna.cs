@@ -1,13 +1,12 @@
-﻿using Csharp_Comex.Modelos.ConsultaApi;
-using Csharp_Comex.Modelos.Filtros;
+﻿using Csharp_Comex.ConsultaApi;
 using Csharp_Comex.Modelos.Produtos;
 using System.Text.Json;
 
-namespace Csharp_Comex.Modelos.Menus;
+namespace Csharp_Comex.Menus;
 
-internal class MenuExibirListaDeProdutosExterna : Menu
+public class MenuExibirListaDeProdutosExterna : Menu
 {
-    
+
     public void ListarProdutosExternos()
     {
 
@@ -17,9 +16,7 @@ internal class MenuExibirListaDeProdutosExterna : Menu
         RequisicaoApi requisicao = new RequisicaoApi();
         var resultado = requisicao.conexao().Result;
         var listaDeProdutos = JsonSerializer.Deserialize<List<Produto>>(resultado)!;
-        listaDeProdutos.ForEach(produto => Console.WriteLine($"Produto: {produto.Nome}\n" +
-                                                         $"Descrição: {produto.Descricao}\n" +
-                                                         $"Preço: {produto.Preco}\n"));
+        listaDeProdutos.ForEach(produto => Console.WriteLine(produto.ToString() + "\n"));
         Console.WriteLine("\nDigite uma tecla para voltar ao menur principal");
         Console.ReadKey();
 

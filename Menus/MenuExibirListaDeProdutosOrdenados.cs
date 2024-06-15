@@ -1,9 +1,9 @@
-﻿using Csharp_Comex.Modelos.Filtros;
+﻿using Csharp_Comex.Filtros;
 using Csharp_Comex.Modelos.Produtos;
 
-namespace Csharp_Comex.Modelos.Menus;
+namespace Csharp_Comex.Menus;
 
-internal class MenuExibirListaDeProdutosOrdenados : Menu
+public class MenuExibirListaDeProdutosOrdenados : Menu
 {
     public void ListaDeProdutosOrdenadosPorNome(List<Produto> produtos)
     {
@@ -22,9 +22,7 @@ internal class MenuExibirListaDeProdutosOrdenados : Menu
         Console.Clear();
         Logo logo = new();
         logo.LogoListarProduto();
-        produtos.ForEach(produto => Console.WriteLine($"Produto: {produto.Nome}\n" +
-                                                      $"Descrição: {produto.Descricao}\n" +
-                                                      $"Preço: {produto.Preco}\n"));
+        produtos.ForEach(produto => Console.WriteLine(produto.ToString()));
 
         Console.WriteLine("\nDigite uma tecla para voltar ao menur principal");
         Console.ReadKey();
