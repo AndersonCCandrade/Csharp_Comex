@@ -40,7 +40,8 @@ public class Pedido
     {
         return $" Cliente: {Cliente.Nome} | " +
                 $"Data do Pedido: {Date} | " +
-                $"Total de Itens: {Itens.Count}";
+                $"Total de Itens: {Itens.Count} |" +
+                $"Valor Total: {Total}";
     }
 
 }
