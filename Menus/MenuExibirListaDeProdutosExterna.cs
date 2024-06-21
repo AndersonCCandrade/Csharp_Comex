@@ -1,5 +1,5 @@
 ﻿using Csharp_Comex.ConsultaApi;
-using Csharp_Comex.Modelos.Produtos;
+using Csharp_Modelos.Modelos.Produtos;
 using System.Text.Json;
 
 namespace Csharp_Comex.Menus;

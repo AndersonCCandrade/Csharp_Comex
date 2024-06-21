@@ -1,4 +1,5 @@
-﻿using Csharp_Comex.Modelos.Produtos;
+﻿using Csharp_Modelos.Modelos.Produtos;
+using Csharp_Comex.Menus.ValidarOpcaoDeMenu;
 
 namespace Csharp_Comex.Menus;
 
@@ -13,11 +14,39 @@ public class MenuCadatrarProduto : Menu
         string nome = Console.ReadLine()!;
         Console.Write("Digite a descrição: ");
         string descricao = Console.ReadLine()!;
-        Console.Write("Digite o preço: R$ ");
-        float preco = float.Parse(Console.ReadLine()!);
-        Console.Write("Digite a quantidade: ");
-        int quantidade = int.Parse(Console.ReadLine()!);
+        bool valorDigitado = false;
+        double preco = 0;
+        while (!valorDigitado)
+        {
+            Console.Write("Digite o preço: R$ ");
+            ValorDigitado = Console.ReadLine()!;
+            preco = ValidaOpcaoDeMenu.VerificarSeValorEDouble(ValorDigitado);
+            if (preco < 0)
+            {
+                Console.Write("Valor não pode ser menor que ou igual 0");
+            }
+            else 
+            {
+                valorDigitado = true;
+            }            
+        }
 
+        int quantidade = 0;
+        while (valorDigitado) 
+        {
+            Console.Write("Digite a quantidade: ");
+            ValorDigitado = Console.ReadLine()!;
+            quantidade = ValidaOpcaoDeMenu.VerificaSeValorEInteiro(ValorDigitado);
+            if (quantidade < 1)
+            {
+                Console.WriteLine("A quantidade deve ser maior que 0");
+            }
+            else
+            {
+                valorDigitado = false;
+            }
+
+        }
         Produto produto = new(nome)
         {
             Descricao = descricao,

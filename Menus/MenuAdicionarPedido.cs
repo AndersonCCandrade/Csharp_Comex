@@ -1,11 +1,14 @@
-﻿using Csharp_Comex.Modelos.Clientes;
-using Csharp_Comex.Modelos.Produtos;
+﻿using Csharp_Comex.Menus.ValidarOpcaoDeMenu;
+using Csharp_Modelos.Modelos.Clientes;
+using Csharp_Modelos.Modelos.Produtos;
+using System;
 
 
 namespace Csharp_Comex.Menus;
 
 public class MenuAdicionarPedido : Menu
 {
+    public string? ValorDigitado { get; set; }
     public Pedido CadastrarPedido(List<Pedido> pedidos, List<Produto> produtos)
     {
         Console.Clear();
@@ -13,15 +16,23 @@ public class MenuAdicionarPedido : Menu
         logo.LogoCadastrarPedido();
 
         Console.Write("\nDigite o nome do Cliente: ");
-        string nome = Console.ReadLine()!;
+        string ValorDigitado = Console.ReadLine()!;
         Cliente cliente = new();
-        cliente.Nome = nome;
+        cliente.Nome = ValorDigitado;
 
         bool opcao = true;
+        
+        int opcaoEscolhida = 2;
         while (opcao)
         {
-            Console.Write("Para visualizar a lista de produtos digite 1 ou 0 para continuar: ");
-            int opcaoEscolhida = int.Parse(Console.ReadLine()!);
+            
+            while (opcaoEscolhida < 0 || opcaoEscolhida > 1)
+            {
+                Console.Write("Para visualizar a lista de produtos digite 1 ou 0 para continuar: ");
+                ValorDigitado = Console.ReadLine()!;
+                opcaoEscolhida = ValidaOpcaoDeMenu.VerificaRetornaOpcaoDigitada(ValorDigitado);
+                
+            }
             Console.WriteLine();
             switch (opcaoEscolhida)
             {
@@ -43,30 +54,51 @@ public class MenuAdicionarPedido : Menu
 
         bool opcaoPedido = true;
         while (opcaoPedido)
-        {
-            Console.Write("Digite o nome do produto que deseja adicionar a lista de pedido: ");
-            string nomeProduto = Console.ReadLine()!;
-
-            while (!produtos.Exists(p => p.Nome.Contains(nomeProduto)))
+        {            
+            var existe = false;                
+            while (!existe)
             {
-                Console.WriteLine("Produto não encontrado!!");
-
                 Console.Write("Digite o nome do produto que deseja adicionar a lista de pedido: ");
-                nomeProduto = Console.ReadLine()!;
+                ValorDigitado = Console.ReadLine()!;
+                existe = VerificaSeProdutoExiste(produtos, ValorDigitado);
+                if (!existe) 
+                { 
+                Console.WriteLine("Produto não encontrado!!");
+                }                   
+            }            
 
+            var produto = produtos.Find(p => p.Nome == ValorDigitado)!;
+
+            bool numeroInt= false;
+            var quantidade = 0;
+            while (!numeroInt) 
+            {
+                Console.Write("\nDigite a quantidade do produto: ");
+                ValorDigitado = Console.ReadLine()!;
+                quantidade = ValidaOpcaoDeMenu.VerificaSeValorEInteiro(ValorDigitado);                         
+                    
+                if (quantidade < 1)
+                {
+                    Console.WriteLine("A quantidade deve ser maior que 0");
+                }
+                else
+                {
+                    numeroInt = true;
+                }
+                
             }
-
-            var produto = produtos.Find(p => p.Nome == nomeProduto)!;
-            Console.Write("\nDigite a quantidade do produto: ");
-            int quantidade = int.Parse(Console.ReadLine()!);
-
             ItemDePedido item = new(produto, quantidade);
             pedido.AdicionarItem(item);
 
-            Console.WriteLine("Se deseja cadastrar mais algum item digite 1 senão 0");
-            int opcaoCadastrarItem = int.Parse(Console.ReadLine()!);
+            opcaoEscolhida = 2;
+            while (opcaoEscolhida < 0 || opcaoEscolhida > 1)
+            {
+                Console.Write("Se deseja cadastrar mais algum item digite 1 senão 0: ");
+                ValorDigitado = Console.ReadLine()!;
+                opcaoEscolhida = ValidaOpcaoDeMenu.VerificaRetornaOpcaoDigitada(ValorDigitado);
+            }            
 
-            if (opcaoCadastrarItem == 0)
+            if (opcaoEscolhida == 0)
             {
                 opcaoPedido = false;
             }
@@ -89,4 +121,18 @@ public class MenuAdicionarPedido : Menu
     {
         produtos.ForEach(produtos => Console.WriteLine(produtos.ToString()));
     }
+
+    private bool VerificaSeProdutoExiste(List<Produto> produtos, string nome)
+    {
+        var existe = produtos.Where(item => item.Nome == nome).FirstOrDefault();
+        if (existe == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    
 }

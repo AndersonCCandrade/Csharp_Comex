@@ -1,5 +1,5 @@
 ﻿using Csharp_Comex.Filtros;
-using Csharp_Comex.Modelos.Produtos;
+using Csharp_Modelos.Modelos.Produtos;
 
 namespace Csharp_Comex.Menus;
 

@@ -1,4 +1,5 @@
-﻿using Csharp_Comex.Modelos.Produtos;
+﻿using Csharp_Comex.Menus.ValidarOpcaoDeMenu;
+using Csharp_Modelos.Modelos.Produtos;
 
 namespace Csharp_Comex.Menus;
 
@@ -8,6 +9,7 @@ public class Menu
 
     List<Pedido> pedidos = new List<Pedido>();
     public string NomeDoSistema { get; } = "CSHARP COMEX";
+    public string? ValorDigitado { get; set; }
 
     public Menu()
     {
@@ -16,6 +18,7 @@ public class Menu
 
     public void ExibirOpcoesDoMenu()
     {
+         
         Console.Clear();
         Logo logo = new();
         logo.LogoSistema();
@@ -29,7 +32,9 @@ public class Menu
         Console.WriteLine("Digite 0 para sair");
 
         Console.Write("\nDigite a sua opção: ");
-        int opcaoEscolhida = int.Parse(Console.ReadLine()!);
+        ValorDigitado = Console.ReadLine()!;
+
+        int opcaoEscolhida = ValidaOpcaoDeMenu.VerificaSeValorEInteiro(ValorDigitado);
 
         switch (opcaoEscolhida)
         {
@@ -62,21 +67,22 @@ public class Menu
                 menu7.ListaDePedidos(pedidos);
                 break;
             case 0:
-                Console.WriteLine($"\nObridado por usar o sistema {NomeDoSistema}.\nAté logo!");
+                Console.WriteLine($"\nObridado por usar o sistema {NomeDoSistema}.\nAté logo!");                
                 break;
             default:
                 Console.WriteLine("Opção Invalida!!!");
+                Thread.Sleep(1000);
                 break;
         }
-
         if (opcaoEscolhida != 0) ExibirOpcoesDoMenu();
+        
     }
 
     private void CriarListaDeProdutos()
     {
         listaDeProdutos.Add(new Produto("Sapato") { Descricao = " Sapato social", Preco = 150.55 });
         listaDeProdutos.Add(new Produto("Camisa") { Descricao = " Camisa social", Preco = 80.25 });
-        listaDeProdutos.Add(new Produto("Calsa") { Descricao = " Calça social", Preco = 195.32 });
+        listaDeProdutos.Add(new Produto("Calça") { Descricao = " Calça social", Preco = 195.32 });
         listaDeProdutos.Add(new Produto("Bleiser") { Descricao = " Bleiser social", Preco = 240.55 });
         listaDeProdutos.Add(new Produto("Meia") { Descricao = " Meia social", Preco = 59.80 });
         listaDeProdutos.Add(new Produto("Cinto") { Descricao = " Cinto social", Preco = 68.00 });
